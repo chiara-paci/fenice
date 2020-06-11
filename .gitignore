@@ -9,8 +9,8 @@ preauth.sql
 *#
 web/
 **/web/
-**/settings.py
-**/settings.py.*
+**/local_settings.py
+**/local_settings.py.*
 bin/
 localbin/
 *.old

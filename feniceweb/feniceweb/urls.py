@@ -13,9 +13,47 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include,reverse_lazy
+from django.conf import settings
+from django.conf.urls.static import static
+
+from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
+from django.utils.translation import gettext_lazy as _
+
+import feniceauth.urls
+#import fenicegdpr.urls
+#import fenicestat.urls
+#import feniceblog.urls
+
+import ckeditor_uploader.urls
+
+import fenicemisc.views
+import fenicemisc.decorators
+import feniceerrors.handlers
+
+from decorator_include import decorator_include
+
+admin.site.site_header=_(settings.COMUNITY_NAME+' Administration')
+admin.site.site_title=_(settings.COMUNITY_NAME+' Site Admin')
+admin.site.index_title=_(settings.COMUNITY_NAME+' Administration')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(r'', fenicemisc.views.HomePageView.as_view(), name="home"),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
+    path(r'admin/', decorator_include([fenicemisc.decorators.staff_or_404], admin.site.urls)),
+    #path(r'stat/',  include(fenicestat.urls)),
+    path(r'credits/', fenicemisc.views.CreditsView.as_view(), name="credits"),
+    path(r'accounts/', include(feniceauth.urls)),
+    #path(r'privacy/', include(fenicegdpr.urls)),
+    path(r'ckeditor/', include(ckeditor_uploader.urls)),
+    #path(r'blog/', include(feniceblog.urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = feniceerrors.handlers.response_handler_404
+handler403 = feniceerrors.handlers.response_handler_403
