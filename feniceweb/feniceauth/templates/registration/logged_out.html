@@ -1,0 +1,24 @@
+{% extends "feniceauth/base.html" %}
+{% load i18n %}
+
+{% block wintitle %}{% trans "Logged Out" %}{% endblock %}
+{% block headertitle %}{% trans "Logged Out" %}{% endblock %}
+
+{% block main %}
+
+<section class="text-only">
+
+  <div>
+    <p>{% blocktrans %}Thanks for spending some quality time with {{ COMMUNITY_NAME }} today.{% endblocktrans %}</p>
+  </div>
+
+  <div>&nbsp;</div>
+
+  <div>
+    <a href="{% url 'feniceauth:login' %}" class="button complement">
+      {% trans 'Log in again' %}</a>
+  </div>  
+
+</section>
+
+{% endblock %}

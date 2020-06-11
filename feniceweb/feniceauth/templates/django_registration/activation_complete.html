@@ -1,0 +1,23 @@
+{% extends "feniceauth/base.html" %}
+{% load i18n %}
+
+{% block headertitle %}{% trans "Activation complete" %}{% endblock %}
+
+{% block main %}
+
+<section class="text-only">
+
+  <div>
+    <p>{% trans "Welcome. Your account is now active." %}</p>
+
+    <p>{% trans "Thank you for registration. You can now login." %}</p>
+
+    <p><a class="button white" href="{% url 'feniceauth:login' %}">{% trans "login" %}</a></p>
+
+    
+
+  </div>
+
+</section>
+
+{% endblock %}

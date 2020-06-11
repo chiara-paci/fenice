@@ -1,0 +1,15 @@
+{% extends 'admin/change_list.html' %}
+{% load i18n admin_urls %}
+
+{% block object-tools-items %}
+
+{{ block.super }}
+<li>
+  {% url cl.opts|admin_urlname:'export' as export_url %}
+  <a href="{% add_preserved_filters export_url is_popup to_field %}">
+    {% blocktrans with cl.opts.verbose_name as name %}Export {{ name }} list{% endblocktrans %}
+  </a>
+</li>
+
+{% endblock %}
+

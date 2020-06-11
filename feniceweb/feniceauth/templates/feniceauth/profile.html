@@ -1,0 +1,50 @@
+{% extends "feniceauth/base.html" %}
+{% load i18n %}
+
+{% block wintitle %}{% blocktrans %}{{ user }}'s Profile{% endblocktrans %}{% endblock %}
+{% block headertitle %}{{ user }}{% endblock %}
+
+{% block main %}
+
+<section class="aside-menu">
+
+  <aside>
+    <nav>
+      <a href="{% url "feniceauth:profile" %}">
+	{% trans "Profile" %}
+      </a>
+      <a href="{% url "feniceauth:password_change" %}">
+	{% trans "Password Change" %}
+      </a>
+      <hr/>
+      <a href="">
+	{% trans "My orders" %}
+      </a>
+      <hr/>
+      <a href="{% url "feniceauth:logout" %}">
+	{% trans "Logout" %}
+      </a>
+    </nav>
+  </aside>
+
+  <div class="vertical-line"></div>
+  
+  <section class="content">
+    {% block content %}
+    <table>
+      <tr>
+	<th>{% trans "Username" %}:</th>
+	<td>{{ user }}</td>
+      </tr>
+      <tr>
+	<th>{% trans "E-mail" %}:</th>
+	<td>{{ user.email }}</td>
+      </tr>
+      
+    </table>
+    {% endblock %}
+  </section>
+  
+</section>
+
+{% endblock %}

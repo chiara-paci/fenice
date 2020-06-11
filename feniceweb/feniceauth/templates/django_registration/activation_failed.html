@@ -1,0 +1,18 @@
+{% extends "feniceauth/base.html" %}
+{% load i18n %}
+
+{% block headertitle %}{% trans "Activation Failed" %}{% endblock %}
+
+{% block main %}
+
+
+<section class="errors">
+  <div>
+    <p>{% trans "We're afraid, but registration can't complete." %}</p>
+
+    <p>{{ activation_error.message }}</p>
+  </div>
+</section>
+
+
+{% endblock %}

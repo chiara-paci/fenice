@@ -1,0 +1,23 @@
+{% load i18n %}
+
+{{ user }},
+
+{% blocktrans %}welcome to {{ COMMUNITY_NAME }}.{% endblocktrans %}
+
+{% blocktrans %}Please follow the link below to activate your account:{% endblocktrans %}
+
+{{ scheme }}://{{ request.META.HTTP_HOST }}{% url 'feniceauth:activate' activation_key %}
+
+{% blocktrans count count=expiration_days %}
+The link will'be valid for {{ expiration_days }} day.
+{% plural %}
+The link will'be valid for {{ expiration_days }} days.
+{% endblocktrans %} 
+
+{% blocktrans %}
+Regards,
+{% endblocktrans %} 
+
+{% blocktrans %}
+{{ COMMUNITY_NAME }}'s Team
+{% endblocktrans %} 

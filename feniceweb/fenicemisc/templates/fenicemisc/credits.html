@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block wintitle %}{% trans "Credits" %}{% endblock %}
+
+
+{% block header %}
+<div class="pagetitle">
+  <h1>{% trans "Credits" %}</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<section class="credits">
+
+  <h1>{% trans "Images with open license" %}</h1>
+
+  <table>
+    <thead>
+      <tr>
+	<th>&nbsp;</th>
+	<th>{% trans "title" %}</th>
+	<th>{% trans "author" %}</th>
+	<th colspan="2">{% trans "license" %}</th>
+      </tr>
+    </thead>
+
+    {% for credit in openimagecredit_list %}
+    
+    <tbody>
+      {% if credit.description %}
+      <tr>
+	<td rowspan=2><img src="{{ credit.thumb_url }}"/></td>
+	<td>
+	  {% if credit.url %}<a href="{{ credit.url }}">{% endif %}
+	    {% if credit.title %}{{ credit.title }}{% else %}{{ credit.name }}{% endif %}
+	  {% if credit.url %}</a>{% endif %}
+	</td>
+	<td>{{ credit.author|safe }}</td>
+	<td rowspan=2>
+	  {% if credit.license.url %}<a href="{{ credit.license.url }}">{% endif %}
+	    {{ credit.license.short_name }}
+	  {% if credit.license.url %}</a>{% endif %}
+	</td>
+	<td rowspan=2>
+	  {% if credit.license.url %}<a href="{{ credit.license.url }}">{% endif %}
+	    {{ credit.license.long_name }}
+	  {% if credit.license.url %}</a>{% endif %}
+	</td>
+      </tr>
+      <tr>
+	<td colspan=2>{{ credit.description|safe }}</td>
+      </tr>
+      {% else %}
+      <tr>
+	<td><img src="{{ credit.thumb_url }}"/></td>
+	<td>
+	  {% if credit.url %}<a href="{{ credit.url }}">{% endif %}
+	    {% if credit.title %}{{ credit.title }}{% else %}{{ credit.name }}{% endif %}
+	  {% if credit.url %}</a>{% endif %}
+	</td>
+	<td>{{ credit.author|safe }}</td>
+	<td>
+	  {% if credit.license.url %}<a href="{{ credit.license.url }}">{% endif %}
+	    {{ credit.license.short_name }}
+	  {% if credit.license.url %}</a>{% endif %}
+	</td>
+	<td>
+	  {% if credit.license.url %}<a href="{{ credit.license.url }}">{% endif %}
+	    {{ credit.license.long_name }}
+	  {% if credit.license.url %}</a>{% endif %}
+	</td>
+      </tr>
+      {% endif %}
+
+    </tbody>
+
+    {% endfor %}
+
+  </table>
+
+</section>
+
+
+{% endblock %}
+
