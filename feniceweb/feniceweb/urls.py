@@ -36,9 +36,13 @@ import feniceerrors.handlers
 
 from decorator_include import decorator_include
 
-admin.site.site_header=_(settings.COMMUNITY_NAME+' Administration')
-admin.site.site_title=_(settings.COMMUNITY_NAME+' Site Admin')
-admin.site.index_title=_(settings.COMMUNITY_NAME+' Administration')
+params={
+    "community_name": settings.COMMUNITY_NAME
+}
+
+admin.site.site_header=_('%(community_name)s Administration') % params
+admin.site.site_title=_('%(community_name)s Site Admin') % params
+admin.site.index_title=_('%(community_name)s Administration') % params
 
 urlpatterns = [
     path(r'', fenicemisc.views.HomePageView.as_view(), name="home"),

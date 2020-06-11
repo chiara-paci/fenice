@@ -1,0 +1,519 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-11 18:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: feniceauth/models.py:58
+msgid "group"
+msgstr "gruppo"
+
+#: feniceauth/models.py:59
+msgid "groups"
+msgstr "gruppi"
+
+#: feniceauth/models.py:126
+#, fuzzy
+#| msgid "Username"
+msgid "username"
+msgstr "Username"
+
+#: feniceauth/models.py:129
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "Richiesto. 150 caratteri o meno. Solo lettere, numeri o @/./+/-/_."
+
+#: feniceauth/models.py:132
+msgid "A user with that username already exists."
+msgstr "Un utente con questo username esiste già"
+
+#: feniceauth/models.py:136
+#, fuzzy
+#| msgid "Email address"
+msgid "email address"
+msgstr "indirizzo email"
+
+#: feniceauth/models.py:139
+msgid "A user with that email already exists."
+msgstr "Un utente con questa email esiste già"
+
+#: feniceauth/models.py:154
+msgid "user"
+msgstr "Utente"
+
+#: feniceauth/models.py:155
+msgid "users"
+msgstr "Utenti"
+
+#: feniceauth/templates/django_registration/activation_complete.html:4
+msgid "Activation complete"
+msgstr "Attivazione completata"
+
+#: feniceauth/templates/django_registration/activation_complete.html:11
+msgid "Welcome. Your account is now active."
+msgstr "Benvenuto. Il tuo account adesso è attivo."
+
+#: feniceauth/templates/django_registration/activation_complete.html:13
+msgid "Thank you for registration. You can now login."
+msgstr "Grazie per esserti registrato. Ora puoi entrare."
+
+#: feniceauth/templates/django_registration/activation_complete.html:15
+#: feniceauth/templates/registration/login.html:46 templates/base.html:64
+msgid "login"
+msgstr "Entra"
+
+#: feniceauth/templates/django_registration/activation_email_body.txt:5
+#, python-format
+msgid "welcome to %(COMMUNITY_NAME)s."
+msgstr "benvenuto in %(COMMUNITY_NAME)s."
+
+#: feniceauth/templates/django_registration/activation_email_body.txt:7
+msgid "Please follow the link below to activate your account:"
+msgstr "Segui il link qui sotto per attivare il tuo account:"
+
+#: feniceauth/templates/django_registration/activation_email_body.txt:11
+#, python-format
+msgid ""
+"\n"
+"The link will'be valid for %(expiration_days)s day.\n"
+msgid_plural ""
+"\n"
+"The link will'be valid for %(expiration_days)s days.\n"
+msgstr[0] ""
+"\n"
+"Il link sarà valido per %(expiration_days)s giorno.\n"
+msgstr[1] ""
+"\n"
+"Il link sarà valido per %(expiration_days)s giorni.\n"
+
+#: feniceauth/templates/django_registration/activation_email_body.txt:17
+msgid ""
+"\n"
+"Regards,\n"
+msgstr ""
+"\n"
+"Saluti,\n"
+
+#: feniceauth/templates/django_registration/activation_email_body.txt:21
+#, python-format
+msgid ""
+"\n"
+"%(COMMUNITY_NAME)s's Team\n"
+msgstr ""
+"\n"
+"Lo staff di %(COMMUNITY_NAME)s\n"
+
+#: feniceauth/templates/django_registration/activation_email_subject.txt:2
+#, fuzzy, python-format
+msgid "[%(COMMUNITY_NAME)s] Please confirm your email address"
+msgstr "[%(COMMUNITY_NAME)s] Conferma il tuo indirizzo email"
+
+#: feniceauth/templates/django_registration/activation_failed.html:4
+msgid "Activation Failed"
+msgstr "Attivazione fallita"
+
+#: feniceauth/templates/django_registration/activation_failed.html:11
+msgid "We're afraid, but registration can't complete."
+msgstr "Ci dispiace, ma la registrazione non può essere completata"
+
+#: feniceauth/templates/django_registration/registration_closed.html:4
+#: feniceauth/templates/django_registration/registration_disallowed.html:4
+msgid "Registration Disallowed"
+msgstr "La registrazione è disabilitata."
+
+#: feniceauth/templates/django_registration/registration_closed.html:11
+#: feniceauth/templates/django_registration/registration_disallowed.html:11
+msgid "Registration is temporarily disallowed."
+msgstr "La registrazione è temporaneamente disabilitata."
+
+#: feniceauth/templates/django_registration/registration_closed.html:13
+#: feniceauth/templates/django_registration/registration_disallowed.html:13
+msgid "Please come back later."
+msgstr "Torna più tardi."
+
+#: feniceauth/templates/django_registration/registration_complete.html:4
+msgid "Registration Complete"
+msgstr "Registrazione completata"
+
+#: feniceauth/templates/django_registration/registration_complete.html:11
+msgid "We've emailed you instructions for activate your account."
+msgstr "Ti abbiamo inviato un email con le istruzioni per attivare l'account."
+
+#: feniceauth/templates/django_registration/registration_complete.html:13
+msgid ""
+"If you don't receive an email, please make sure you've entered a correct "
+"address, and check your spam folder."
+msgstr ""
+"Se non hai ricevuto l'email, assicurati di aver inserito un indirizzo "
+"corretto e controlla la cartella della posta indesiderata."
+
+#: feniceauth/templates/django_registration/registration_form.html:10
+#: feniceauth/templates/registration/password_change_form.html:12
+msgid "Please correct the error below."
+msgstr "Correggi l'errore qui sotto."
+
+#: feniceauth/templates/django_registration/registration_form.html:10
+#: feniceauth/templates/registration/password_change_form.html:12
+msgid "Please correct the errors below."
+msgstr "Correggi gli errori qui sotto."
+
+#: feniceauth/templates/django_registration/registration_form.html:34
+msgid "Register"
+msgstr "Registrati"
+
+#: feniceauth/templates/feniceauth/profile.html:4
+#, python-format
+msgid "%(user)s's Profile"
+msgstr "Profilo di %(user)s"
+
+#: feniceauth/templates/feniceauth/profile.html:14
+msgid "Profile"
+msgstr "Profilo"
+
+#: feniceauth/templates/feniceauth/profile.html:17
+msgid "Password Change"
+msgstr "Cambia password"
+
+#: feniceauth/templates/feniceauth/profile.html:21
+msgid "My orders"
+msgstr "I miei ordini"
+
+#: feniceauth/templates/feniceauth/profile.html:25
+msgid "Logout"
+msgstr "Esci"
+
+#: feniceauth/templates/feniceauth/profile.html:36
+msgid "Username"
+msgstr "Username"
+
+#: feniceauth/templates/feniceauth/profile.html:40
+msgid "E-mail"
+msgstr "E-mail"
+
+#: feniceauth/templates/registration/logged_out.html:4
+#: feniceauth/templates/registration/logged_out.html:5
+msgid "Logged Out"
+msgstr "Uscito"
+
+#: feniceauth/templates/registration/logged_out.html:12
+#, fuzzy, python-format
+msgid "Thanks for spending some quality time with %(COMMUNITY_NAME)s today."
+msgstr ""
+"Ti ringraziamo per aver speso il tuo tempo prezioso con %(COMMUNITY_NAME)s."
+
+#: feniceauth/templates/registration/logged_out.html:19
+#: feniceauth/templates/registration/password_reset_complete.html:18
+msgid "Log in again"
+msgstr "Entra di nuovo"
+
+#: feniceauth/templates/registration/login.html:4
+#: feniceauth/templates/registration/login.html:5
+msgid "Login"
+msgstr "Entra"
+
+#: feniceauth/templates/registration/login.html:13
+msgid "Your username and password didn't match. Please try again."
+msgstr "L'utente e la password non corrispondono. Riprova"
+
+#: feniceauth/templates/registration/login.html:23
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr ""
+"Il tuo account non ha accesso a questa pagina. Per andare avanti, entra con "
+"un utente che possa accedere."
+
+#: feniceauth/templates/registration/login.html:25
+msgid "Please login to see this page."
+msgstr "Entra per vedere questa pagina."
+
+#: feniceauth/templates/registration/login.html:47
+msgid "Lost password?"
+msgstr "Password dimenticata?"
+
+#: feniceauth/templates/registration/login.html:48
+msgid "New user?"
+msgstr "Nuovo utente?"
+
+#: feniceauth/templates/registration/password_change_done.html:4
+msgid "Password changed"
+msgstr "Password cambiata"
+
+#: feniceauth/templates/registration/password_change_done.html:13
+msgid "Your password was changed."
+msgstr "La tua password è stata cambiata."
+
+#: feniceauth/templates/registration/password_change_form.html:4
+msgid "Change password"
+msgstr "Cambia la password"
+
+#: feniceauth/templates/registration/password_change_form.html:21
+msgid ""
+"Please enter your old password, and then enter your new password twice so we "
+"can verify you typed it in correctly."
+msgstr ""
+"Inserisci la vecchia password e quindi due volte quella nuova in modo che "
+"possiamo verificare che tu l'abbia scritta correttamente."
+
+#: feniceauth/templates/registration/password_change_form.html:44
+msgid "Change my password"
+msgstr "Cambiami la password"
+
+#: feniceauth/templates/registration/password_reset_complete.html:4
+msgid "Password reset complete"
+msgstr "Reset della password completato"
+
+#: feniceauth/templates/registration/password_reset_complete.html:11
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "La tua password è stata imposta. Adesso puoi proseguire ed entrare."
+
+#: feniceauth/templates/registration/password_reset_confirm.html:4
+msgid "Password reset confirmation"
+msgstr "Conferma del reset della password"
+
+#: feniceauth/templates/registration/password_reset_confirm.html:12
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Inserisci due volte la nuova password in modo che possiamo verificare che tu "
+"l'abbia scritta correttamente."
+
+#: feniceauth/templates/registration/password_reset_confirm.html:29
+msgid "change my password"
+msgstr "cambiami la password"
+
+#: feniceauth/templates/registration/password_reset_confirm.html:37
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"Il link per il reset della password non è valido, probabilmente perché è già "
+"stato usato. Dovresti fare una nuova richiesta di reset."
+
+#: feniceauth/templates/registration/password_reset_done.html:4
+msgid "Logged out"
+msgstr "Uscito"
+
+#: feniceauth/templates/registration/password_reset_done.html:11
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Se esiste un account che corrisponde all'email che hai inserito, ti abbiamo "
+"inviato le istruzioni per impostare una nuova password. Dovresti riceverle a "
+"breve."
+
+#: feniceauth/templates/registration/password_reset_done.html:13
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Se non hai ricevuto l'email, assicurati di aver inserito l'indirizzo email "
+"con cui ti sei registrato e controlla la cartella della posta indesiderata."
+
+#: feniceauth/templates/registration/password_reset_email.html:3
+#, python-format
+msgid ""
+"Someone asked for password reset for email %(email)s. Follow the link below:"
+msgstr ""
+"Qualcuno ha richiesto di reimpostare la password per l'email %(email)s. "
+"Segui il link qui sotto:"
+
+#: feniceauth/templates/registration/password_reset_form.html:4
+msgid "Reset password"
+msgstr "Reset della password"
+
+#: feniceauth/templates/registration/password_reset_form.html:11
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+"Hai dimenticato la password? Scrivi il tuo indirizzo email qui sotto e ti "
+"manderemo le istruzione per reimpostarla."
+
+#: feniceauth/templates/registration/password_reset_form.html:18
+msgid "Email address"
+msgstr "Indirizzo email"
+
+#: feniceauth/templates/registration/password_reset_form.html:24
+msgid "Reset my password"
+msgstr "Reimpostami la password"
+
+#: feniceauth/templates/registration/password_reset_subject.txt:2
+#, python-format
+msgid "[%(COMMUNITY_NAME)s] Password reset"
+msgstr ""
+
+#: feniceblog/templates/campoblog/article_archive.html:5
+#: feniceblog/templates/campoblog/article_archive.html:9
+#: feniceblog/templates/campoblog/article_list.html:5
+#: feniceblog/templates/campoblog/article_list.html:9
+msgid "Article list"
+msgstr "Elenco degli articoli"
+
+#: feniceblog/templates/campoblog/article_detail.html:5
+msgid "Article"
+msgstr "Articolo"
+
+#: fenicegdpr/templates/fenicegdpr/policy.html:5
+#: fenicegdpr/templates/fenicegdpr/policy.html:10 templates/base.html:110
+msgid "Privacy Policy"
+msgstr "Politiche di privacy"
+
+#: fenicegdpr/templates/fenicegdpr/policy.html:18
+#, fuzzy
+msgid "Last privacy policy"
+msgstr "Ultima politica di privacy"
+
+#: fenicemisc/templates/fenicemisc/admin/change_list_export.html:10
+#, python-format
+msgid "Export %(name)s list"
+msgstr "Export elenco di %(name)s"
+
+#: fenicemisc/templates/fenicemisc/credits.html:5
+#: fenicemisc/templates/fenicemisc/credits.html:10 templates/base.html:111
+msgid "Credits"
+msgstr "Crediti"
+
+#: fenicemisc/templates/fenicemisc/credits.html:18
+msgid "Images with open license"
+msgstr "Immagini con licenza aperta"
+
+#: fenicemisc/templates/fenicemisc/credits.html:24
+msgid "title"
+msgstr "titolo"
+
+#: fenicemisc/templates/fenicemisc/credits.html:25
+msgid "author"
+msgstr "autore"
+
+#: fenicemisc/templates/fenicemisc/credits.html:26
+msgid "license"
+msgstr "licenza"
+
+#: fenicemisc/templates/fenicemisc/index.html:6
+msgid "Welcome!"
+msgstr "Benvenuto!"
+
+#: fenicemisc/templates/fenicemisc/index.html:144
+msgid "Coming soon"
+msgstr "Presto disponibile"
+
+#: fenicemisc/templates/fenicemisc/index.html:147
+msgid ""
+"Enter your email address so we can notify you when the service will be "
+"available in your zone"
+msgstr ""
+"Inserisci il tuo indirizzo email, così ti possiamo avvisare quando il "
+"servizio sarà disponibile nella tua zona"
+
+#: fenicemisc/templates/fenicemisc/index.html:152
+msgid "Your email address..."
+msgstr "Indirizzo email..."
+
+#: fenicemisc/templates/fenicemisc/index.html:153
+msgid "Your ZIP..."
+msgstr "Il tuo CAP..."
+
+#: fenicemisc/templates/fenicemisc/index.html:156
+msgid "keep me informed"
+msgstr "tienimi informato"
+
+#: fenicestat/templates/fenicestat/browser_list.html:5
+#: fenicestat/templates/fenicestat/browser_list.html:10
+msgid "Browser List"
+msgstr "Elenco Browser"
+
+#: fenicestat/templates/fenicestat/browser_list.html:25
+msgid "Add"
+msgstr "Aggiungi"
+
+#: feniceweb/urls.py:43 feniceweb/urls.py:45
+#, python-format
+msgid "%(community_name)s Administration"
+msgstr "Amministrazione di %(community_name)s"
+
+#: feniceweb/urls.py:44
+#, python-format
+msgid "%(community_name)s Site Admin"
+msgstr "Sito di Amministrazione di %(community_name)s"
+
+#: templates/base.html:28
+msgid "Main navigation"
+msgstr "Menù principale"
+
+#: templates/base.html:31
+msgid "Banner"
+msgstr "Banner"
+
+#: templates/base.html:34 templates/base.html:65
+msgid "register"
+msgstr "registrati"
+
+#: templates/base.html:54
+msgid "Site navigation"
+msgstr "Menù del sito"
+
+#: templates/base.html:56
+msgid "blog"
+msgstr "blog"
+
+#: templates/base.html:62
+msgid "User navigation"
+msgstr "Menù utente"
+
+#: templates/base.html:67
+msgid "profile"
+msgstr "profilo"
+
+#: templates/base.html:69
+msgid "admin"
+msgstr "admin"
+
+#: templates/base.html:71
+msgid "logout"
+msgstr "esci"
+
+#: templates/base.html:95
+#, fuzzy
+#| msgid "Our links"
+msgid "Useful links"
+msgstr "Link utili"
+
+#: templates/base.html:98
+msgid "About us"
+msgstr "Chi siamo"
+
+#: templates/base.html:103
+msgid "Follow us on social"
+msgstr "Seguici sui social"
+
+#: templates/base.html:109
+msgid "Internals"
+msgstr "Interni"
+
+#: templates/base.html:117
+msgid "Notes"
+msgstr "Note"
+
+#: templates/base.html:119
+msgid ""
+"Licensed under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\">CC BY-SA 4.0</a>"
+msgstr ""
+"Licenziato sotto <a href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\">CC BY-SA 4.0</a>"
