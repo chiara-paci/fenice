@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block wintitle %}{% trans "Browser List" %}{% endblock %}
+
+
+{% block header %}
+<div class="pagetitle">
+  <h1>{% trans "Browser List" %}</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<section class="createform">
+
+  <form method="post">
+  {% csrf_token %}
+
+  <table>
+  {{ form.as_table }}
+  </table>
+
+  <input type="submit" value="{% trans 'Add' %}" class="default">
+
+</form>
+
+</section>
+
+<section>
+{% for browser in browser_list %}
+<p>{{ browser }}</p>
+{% endfor %}
+</section>
+
+{% endblock %}
+

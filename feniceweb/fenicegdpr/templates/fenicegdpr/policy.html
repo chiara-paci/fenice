@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block wintitle %}{% trans "Privacy Policy" %}{% endblock %}
+
+
+{% block header %}
+<div class="pagetitle">
+  <h1>{% trans "Privacy Policy" %}</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<section class="document">
+
+  <h1 class="hidden">{% trans "Last privacy policy" %}</h1>
+
+  {{ policy.text|safe }}
+
+  <div class="info">
+    <p>{{ policy.created }} (v. {{ policy.version }})</p>
+  </div>
+
+</section>
+
+
+{% endblock %}
+

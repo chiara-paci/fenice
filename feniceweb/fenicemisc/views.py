@@ -19,61 +19,6 @@ class HomePageView(TemplateView):
 
     def get_context_data(self,*args,**kwargs):
         context=TemplateView.get_context_data(self,*args,**kwargs)
-        context["save_email_url"]=reverse_lazy("fenicegames:email_create")
-
-        context["product_list"]=[]
-
-        for image_url,color,name,description,quote,measure,num_quote,num_target in [
-                ("q_olio.jpg","orange",
-                 "Olio extra vergine del Garda D.O.P.",
-                 "L'olio extra vergine del Garda ha un gusto delicato e fruttato con una nota di mandorla dolce, bassa acidità e ottima digeribilità.",
-                 5,"kg",17,20),
-                ("q_asparagi.jpg","green",
-                 "Asparagi bianchi di Bassano D.O.P.",
-                 "Gli asparagi bianchi di Bassano sono spessi e teneri e hanno un gusto dolce-amaro. Ricchi di vitamine, sono depurativi per fegato e reni.",
-                 1,"kg",4,20),
-                ("q_carote.jpg","magenta",
-                 "Carote di Chioggia",
-                 "La carota è ricca di vitamine e sali minerali, tonica e rinfrescante. Molto versatile in cucina, può essere usata anche per lenire scottature e altre piaghe della pelle.",
-                 1,"kg",40,50),
-                ("q_formaggio2.jpg","blue",
-                 "Bastardo del Grappa P.A.T.",
-                 "Il Bastardo del Grappa è un formaggio semigrasso, a pasta semidura, dal sapore preciso ma delicato. Ideale con la polenta.",
-                 1,"kg",12,40),
-                ("q_aglio.jpg","green",
-                 "Aglio bianco polesano D.O.P.",
-                 "L'aglio del Polesine ha un aroma intenso, ma non pungente, e un profumo delicato. Si conserva facilmente grazie al suo basso tenore d'acqua.",
-                 150,"g",16,30),
-                ("q_formaggio1.jpg","orange",
-                 "Monte veronese D.O.P.",
-                 "Il Monte veronese è un formaggio dal sapore delicato e gradevole, di fermenti lattici e di panna, che tende a diventare piccante con la stagionatura.",
-                 1,"kg",12,60),
-        ]:
-            percent=int(100*num_quote/num_target)
-
-            alpha=math.pi*percent/100.0
-            x=100*math.cos(alpha)
-            y=100*math.sin(alpha)
-            arc={
-                "start_x": x,
-                "start_y": -y, # y axis is reversed
-                "end_x": x,
-                "end_y": y,
-                "large_arc": int(percent>50),
-            }
-            context["product_list"].append({
-                "name": name,
-                "description": description,
-                "quote": quote,
-                "target": quote*num_target,
-                "achievement": quote*num_quote,
-                "measure": measure,
-                "image_url": "images/products/%s" % image_url,
-                "arc": arc,
-                "color": color,
-                "percent": percent
-            })
-
         return context
 
     def get(self,request,*args,**kwargs):

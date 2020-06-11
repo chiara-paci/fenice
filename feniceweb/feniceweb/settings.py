@@ -34,7 +34,7 @@ INTERNAL_IPS = (
 # Application definition
 
 INSTALLED_APPS = [
-    "feniceerrors.apps.FemiceerrorsConfig",
+    "feniceerrors.apps.FeniceerrorsConfig",
     "feniceauth.apps.FeniceauthConfig",
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -49,9 +49,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     "fenicemisc.apps.FenicemiscConfig",
-    #"fenicegdpr.apps.FenicegdprConfig",
-    #"fenicestat.apps.FenicestatConfig",
-    #"feniceblog.apps.FeniceblogConfig",
+    "fenicegdpr.apps.FenicegdprConfig",
+    "fenicestat.apps.FenicestatConfig",
+    "feniceblog.apps.FeniceblogConfig",
 
 ]
 
@@ -267,6 +267,6 @@ AGREEMENT_NAMES = {
 
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     raise Exception("A local_settings.py file is required to run this project")

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block wintitle %}{% trans "Article list" %}{% endblock %}
+
+{% block header %}
+<div class="pagetitle">
+  <h1>{% trans "Article list" %}</h1>
+</div>
+{% endblock header %}
+
+{% block main %}
+<ul>
+  {% for article in latest %}
+  <li>{{ article.publishing_date }}: <a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
+

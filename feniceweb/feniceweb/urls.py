@@ -24,9 +24,9 @@ from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
 
 import feniceauth.urls
-#import fenicegdpr.urls
-#import fenicestat.urls
-#import feniceblog.urls
+import fenicegdpr.urls
+import fenicestat.urls
+import feniceblog.urls
 
 import ckeditor_uploader.urls
 
@@ -36,20 +36,20 @@ import feniceerrors.handlers
 
 from decorator_include import decorator_include
 
-admin.site.site_header=_(settings.COMUNITY_NAME+' Administration')
-admin.site.site_title=_(settings.COMUNITY_NAME+' Site Admin')
-admin.site.index_title=_(settings.COMUNITY_NAME+' Administration')
+admin.site.site_header=_(settings.COMMUNITY_NAME+' Administration')
+admin.site.site_title=_(settings.COMMUNITY_NAME+' Site Admin')
+admin.site.index_title=_(settings.COMMUNITY_NAME+' Administration')
 
 urlpatterns = [
     path(r'', fenicemisc.views.HomePageView.as_view(), name="home"),
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path(r'admin/', decorator_include([fenicemisc.decorators.staff_or_404], admin.site.urls)),
-    #path(r'stat/',  include(fenicestat.urls)),
+    path(r'stat/',  include(fenicestat.urls)),
     path(r'credits/', fenicemisc.views.CreditsView.as_view(), name="credits"),
     path(r'accounts/', include(feniceauth.urls)),
-    #path(r'privacy/', include(fenicegdpr.urls)),
+    path(r'privacy/', include(fenicegdpr.urls)),
     path(r'ckeditor/', include(ckeditor_uploader.urls)),
-    #path(r'blog/', include(feniceblog.urls)),
+    path(r'blog/', include(feniceblog.urls)),
 ]
 
 if settings.DEBUG:

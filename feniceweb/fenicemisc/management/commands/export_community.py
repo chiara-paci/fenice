@@ -9,7 +9,6 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from fenicemisc import models as misc_models
 from fenicegdpr import models as gdpr_models
-from fenicegames import models as games_models
 from feniceauth import models as auth_models
 
 def build_tarinfo(fname,data):
@@ -43,8 +42,6 @@ class Command(BaseCommand):
                 (misc_models.OpenLicense, "./credits/open_licenses.json"),
                 (gdpr_models.GDPRAgreement, "./gdpr/agreements.json"),
                 (misc_models.OpenImageCredit, "./credits/open_image_credits.json"),
-                (games_models.ProductCategory, "./games/product_categories.json"),
-                (games_models.Product, "./games/products.json"),
                 (auth_models.Group, "./auth/groups.json"),
         ]:
             D=[ obj.__serialize__() for obj in model.objects.all() ]
