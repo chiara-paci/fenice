@@ -27,7 +27,8 @@ class GDPRPolicyManager(models.Manager):
         return self.latest("created")
 
 class GDPRPolicy(models.Model):
-    text = models.CharField(max_length=8192)
+    text = misc_fields.CleanHtmlRichTextField()
+    #text = models.CharField(max_length=8192)
     version = models.CharField(max_length=1024,unique=True)
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)

@@ -23,12 +23,16 @@ from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
 
+from machina import urls as machina_urls
+
 import feniceauth.urls
 import fenicegdpr.urls
 import fenicestat.urls
 import feniceblog.urls
 
 import ckeditor_uploader.urls
+import avatar.urls
+import helpdesk.urls
 
 import fenicemisc.views
 import fenicemisc.decorators
@@ -46,14 +50,21 @@ admin.site.index_title=_('%(community_name)s Administration') % params
 
 urlpatterns = [
     path(r'', fenicemisc.views.HomePageView.as_view(), name="home"),
-    path('admin/doc/', include('django.contrib.admindocs.urls')),
+    path(r'admin/doc/', include('django.contrib.admindocs.urls')),
     path(r'admin/', decorator_include([fenicemisc.decorators.staff_or_404], admin.site.urls)),
+    path(r'ckeditor/', include(ckeditor_uploader.urls)),
+    path(r'avatar/', include(avatar.urls)),
     path(r'stat/',  include(fenicestat.urls)),
     path(r'credits/', fenicemisc.views.CreditsView.as_view(), name="credits"),
     path(r'accounts/', include(feniceauth.urls)),
     path(r'privacy/', include(fenicegdpr.urls)),
-    path(r'ckeditor/', include(ckeditor_uploader.urls)),
     path(r'blog/', include(feniceblog.urls)),
+    path(r'forum/', include(machina_urls)),
+    path(r'helpdesk/', include(helpdesk.urls)),
+    path(r"badges/", include("pinax.badges.urls", namespace="pinax_badges")),
+    path(r"announcements/", include("pinax.announcements.urls", namespace="pinax_announcements")),
+    path(r"likes/", include("pinax.likes.urls", namespace="pinax_likes")),
+    path(r"messages/", include("pinax.messages.urls", namespace="pinax_messages")),
 ]
 
 if settings.DEBUG:

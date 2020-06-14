@@ -9,10 +9,10 @@ from . import models
 class GDPRPolicyAdmin(admin.ModelAdmin):
     list_display=[ "version","created","last_modified" ]
 
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        if db_field.name == 'text':
-            kwargs['widget'] = AceWidget(mode="html",theme='twilight')
-        return admin.ModelAdmin.formfield_for_dbfield(self,db_field,**kwargs)
+    # def formfield_for_dbfield(self, db_field, **kwargs):
+    #     if db_field.name == 'text':
+    #         kwargs['widget'] = AceWidget(mode="html",theme='twilight')
+    #     return admin.ModelAdmin.formfield_for_dbfield(self,db_field,**kwargs)
 
 admin.site.register(models.GDPRPolicy,GDPRPolicyAdmin)
 

@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from machina import MACHINA_MAIN_TEMPLATE_DIR
+from machina import MACHINA_MAIN_STATIC_DIR
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARENT_DIR = os.path.dirname(BASE_DIR)
@@ -39,15 +42,49 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
+    'django.contrib.sites',  # Required for django-helpdesk
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'django.contrib.humanize',  # Required for django-helpdesk
     'django_extensions',
     'django_ace',
     'ckeditor',
     'ckeditor_uploader',
+    'avatar',
+
+    # django-helpdesk dependencies
+    'markdown_deux',  # Required for Knowledgebase item formatting
+    'bootstrapform',  # Required for nicer formatting of forms with the default templates
+    'helpdesk',       # This is us!
+
+    # Machina dependencies:
+    'mptt',
+    'haystack',
+    'widget_tweaks',
+
+    # Machina apps:
+    'machina',
+    'machina.apps.forum',
+    'machina.apps.forum_conversation',
+    'machina.apps.forum_conversation.forum_attachments',
+    'machina.apps.forum_conversation.forum_polls',
+    'machina.apps.forum_feeds',
+    'machina.apps.forum_moderation',
+    'machina.apps.forum_search',
+    'machina.apps.forum_tracking',
+    'machina.apps.forum_member',
+    'machina.apps.forum_permission',
+
+    # Pinax
+    "pinax.badges",
+    "pinax.announcements",
+    "pinax.calendars",
+    "pinax.likes",
+    "pinax.messages",
+
     "fenicemisc.apps.FenicemiscConfig",
     "fenicegdpr.apps.FenicegdprConfig",
     "fenicestat.apps.FenicestatConfig",
@@ -55,7 +92,16 @@ INSTALLED_APPS = [
 
 ]
 
+SITE_ID = 1
+
 AUTH_USER_MODEL = 'feniceauth.User'
+
+LOGIN_URL = "/accounts/login/"
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'pinax.likes.auth_backends.CanLikeBackend',
+]
 
 
 MIDDLEWARE = [
@@ -71,6 +117,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "feniceerrors.middleware.ErrorHandlingMiddleware",
     'crum.CurrentRequestUserMiddleware',
+    'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
 ]
 
 ROOT_URLCONF = 'feniceweb.urls'
@@ -78,7 +125,10 @@ ROOT_URLCONF = 'feniceweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR,"templates") ],
+        'DIRS': [ 
+            os.path.join(BASE_DIR,"templates"),
+            MACHINA_MAIN_TEMPLATE_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,7 +138,12 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'fenicemisc.context_processors.community',
+                'machina.core.context_processors.metadata',
             ],
+            # 'loaders': [
+            #     'django.template.loaders.filesystem.Loader',
+            #     'django.template.loaders.app_directories.Loader',
+            # ]
         },
     },
 ]
@@ -132,6 +187,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+### Cache
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    'machina_attachments': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp',
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -158,6 +224,7 @@ STATIC_ROOT = os.path.join(PARENT_DIR,"web","static")
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    MACHINA_MAIN_STATIC_DIR,
 ]
 
 FIXTURE_DIRS = [
@@ -166,6 +233,27 @@ FIXTURE_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 MEDIA_URL = "/media/"
+
+
+### Haystack/Machina
+# You can also decide to use a more powerfull backend such as Solr or Whoosh:
+# https://django-machina.readthedocs.io/en/latest/getting_started.html
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
+
+MACHINA_MARKUP_LANGUAGE = None
+MACHINA_MARKUP_WIDGET = 'ckeditor.widgets.CKEditorWidget'
+
+MACHINA_PROFILE_AVATARS_ENABLED = False
+
+### Avatar
+
+AVATAR_THUMB_FORMAT = "PNG"
+AVATAR_AUTO_GENERATE_SIZES = [80,128]
 
 ## django-registration
 ACCOUNT_ACTIVATION_DAYS = 3
@@ -249,6 +337,13 @@ CKEDITOR_CONFIGS = {
         ],
     },
 }
+
+### Pinax
+
+PINAX_LIKES_LIKABLE_MODELS = {
+    "app.Model": {}  # override default config settings for each model in this dict
+}
+
 
 ## Fenice
 

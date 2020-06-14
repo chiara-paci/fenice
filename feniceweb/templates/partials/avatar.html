@@ -1,0 +1,8 @@
+{% load avatar_tags %}
+{% if profile.user|has_avatar %}
+    {% avatar profile.user 128 class="img-circle img-responsive" id="user_avatar" %}
+{% elif show_placeholder %}
+    <span class="avatar empty">
+      <i class="far fa-user fa-4x" ></i>
+    </span>
+{% endif %}

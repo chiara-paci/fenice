@@ -9,8 +9,6 @@ from django.utils.text import slugify
 
 from fenicemisc import functions,fields as misc_fields
 
-#from ckeditor.fields import RichTextField
-#from ckeditor_uploader.fields import RichTextUploadingField
 from crum import get_current_user
 
 class ArticleManager(models.Manager):
