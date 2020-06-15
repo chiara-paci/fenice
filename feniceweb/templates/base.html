@@ -10,122 +10,257 @@
 
     <title>{{ COMMUNITY_NAME }} - {% block wintitle %}{% endblock %}</title>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/fenice.css' %}"/>
-
     <link rel="icon" href="{% static 'brand/favicon.png' %}" type="image/png"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Neucha&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="{% static 'semantic/semantic.min.css' %}">
+
 
     {% block addcss %}{% endblock %}
 
   </head>
 
-  <body>
+  <body id="root">
 
-    <nav id="mainbar" class="ontop">
-      <h1 class="hidden">{% trans "Main navigation" %}</h1>
+    {% block body %}
 
-      <section class="banner">
-	<h2 class="hidden">{% trans "Banner" %}</h2>
-	<p id="banner2">
-	  <span>Fai parte del cambiamento</span>&nbsp; 
-	  <a class="button purple">{% trans "register" %}</a>
-	</p>
-	<p id="banner1">
-	  Siamo pronti a partire con il nostro e–commerce
-	</p>
-      </section>
+    
 
-      <div class="menu">
+    <header class="ui grid top fixed borderless tablet computer only padded">
 
-	<div class="logo">
-	  <img src="{% static 'brand/logo_verde.svg' %}" alt="logo"/>
-	  <div>
-	    <p class="fenice">{{ COMMUNITY_NAME }}</p>
-	    <p class="slogan">{{ COMMUNITY_SLOGAN }}</p>
-	  </div>
+      <div class="three column row">
+
+	<div class="column" style="border: 1px solid red">
+	  <h1 class="ui header">
+	    <img class="ui image" src="{% static 'brand/logo.svg' %}">
+	    <div class="content">{{ COMMUNITY_NAME }}</div>
+	  </h1>
 	</div>
 	
-	<section id="mainmenu">
-	  <button id="mainmenu-open" data-target="#mainmenu"  class="menu-opener whitegray">
-	    <i class="fas fa-bars"></i></button>
-	  <h2 class="hidden">{% trans "Site navigation" %}</h2>
-	  <a href="{% url "home" %}">home</a>
-	  <a href="{% url "feniceblog:article_archive" %}">{% trans "blog" %}</a>
-	</section>
+	<div class="two wide column"  style="border: 1px solid red">
+          <form class="ui form">
+            <div class="inline fields">
+              <div class="field">
+		<input placeholder="Email" type="text" />
+              </div>
+              <div class="field">
+		<input placeholder="Password" type="password" />
+              </div>
+              <div class="field">
+		<button class="ui green button">Sign in</button>
+              </div>
+            </div>
+          </form>
+	</div>
 	
-	<section id="usermenu">
-	  <button id="usermenu-open" data-target="#usermenu" class="menu-opener whitegray">
-	    <i class="fas fa-user"></i></button>
-	  <h2 class="hidden">{% trans "User navigation" %}</h2>
-	  {% if user.is_anonymous %}
-	  <a href="{% url "feniceauth:login" %}">{% trans "login" %}</a>
-	  <a href="{% url "feniceauth:register" %}">{% trans "register" %}</a>
-	  {% else %}
-	  <a href="{% url "feniceauth:profile" %}">{% trans "profile" %}</a>
-	  {% if user.is_staff %}
-	  <a href="{% url "admin:index" %}">{% trans "admin" %}</a>
-	  {% endif %}
-	  <a href="{% url "feniceauth:logout" %}">{% trans "logout" %}</a>
-	  {% endif %}
-	</section>
       </div>
-    </nav>
-    
-    {% block body %}
-    
-    {% block outheader %}
-    <header>
-      {% block header %}
-      {% endblock header %}
+      
+      <div class="one column row">
+	<div class="column" style="border: 1px solid red">
+	  <nav class="ui secondary menu">
+	    <a class="item">
+	      Home
+	    </a>
+	    <a class="item">
+	      Messages
+	    </a>
+	    <a class="item">
+	      Friends
+	    </a>
+	  </nav>
+	</div>
+      </div>
+
+
+
     </header>
-    {% endblock outheader %}
+
+
+<!--      <div class="ui top fixed borderless inverted fluid menu">
+        <div class="ui container">
+          <p class="header item">{{ COMMUNITY_NAME }}</p>
+
+          <div class="right menu">
+            <div class="item">
+              <form class="ui form">
+                <div class="inline fields">
+                  <div class="field">
+                    <input placeholder="Email" type="text" />
+                  </div>
+                  <div class="field">
+                    <input placeholder="Password" type="password" />
+                  </div>
+                  <div class="field">
+                    <button class="ui green button">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+
+
+    <header class="ui mobile only padded grid">
+      <div class="ui top fixed borderless inverted fluid huge menu">
+        <p class="header item">{{ COMMUNITY_NAME }}</p>
+
+        <div class="ui vertical borderless inverted fluid menu">
+          <div class="item">
+            <form class="ui form">
+              <div class="field">
+		<input placeholder="Email" type="text" />
+	      </div>
+              <div class="field">
+                <input placeholder="Password" type="password" />
+              </div>
+              <div class="field">
+                <button class="ui green button">Sign in</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </header>
 
     <main>
-      {% block main %}
-      {% endblock %}
-    </main>
 
+    <div class="ui massive message">
+      <div class="ui container">
+        <h1 class="ui huge header">Hello, world!</h1>
+        <p>
+          This is a template for a simple marketing or informational website. It
+          includes a large callout called a jumbotron and three supporting
+          pieces of content. Use it as a starting point to create something more
+          unique.
+        </p>
+        <button class="ui large primary button">Learn more &raquo;</button>
+      </div>
+    </div>
 
-    <footer>
+    <div class="ui container">
+      <div class="ui three column stackable grid">
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <div class="ui divider"></div>
 
-      <section class="info">
-	<h1 class="hidden">{% trans "Useful links" %}</h1>
+    <div class="ui container">
+      <div class="ui three column stackable grid">
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <div class="ui divider"></div>
 
-	<section class="left">
-	  <h2 class="hidden">{% trans "About us" %}</h2>
-	  <p><a href="mailto:community@costruttoridimondi.org">community@costruttoridimondi.org</a></p>
-	</section>
+    <div class="ui container">
+      <div class="ui three column stackable grid">
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+        <div class="column">
+          <h1 class="ui header">Heading</h1>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui.
+          </p>
+          <div class="ui small basic button">View details &raquo;</div>
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <div class="ui divider"></div>
 
-	<section class="center">
-	  <h2>{% trans "Follow us on social" %}</h2>
-	  <nav class="icons">
-	  </nav>
-	</section>
+      <footer>
+	&copy; 2020 Costruttori di Mondi
+      </footer>
 
-	<section class="right">
-	  <h2 class="hidden">{% trans "Internals" %}</h2>
-	  <p><a href="{% url "fenicegdpr:policy" %}">{% trans "Privacy Policy" %}</a></p>
-	  <p><a href="{% url "credits" %}">{% trans "Credits" %}</a></p>
-	</section>
+    </div>
 
-      </section>
-
-      <section class="notes">
-	<h1 class="hidden">{% trans "Notes" %}</h1>
-	<p class="center">© 2020 {{ COMMUNITY_NAME }}.
-	  {% blocktrans %}Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>{% endblocktrans %}
-	  <i class="fab fa-creative-commons"></i>
-	  <i class="fab fa-creative-commons-by"></i>
-	  <i class="fab fa-creative-commons-sa"></i>
-</p>
-      </section>
-
-    </footer>
 
     {% endblock %}
+
 
     {% if save_browser_data %}
     <form id="browserinfo" class="hidden" action="{{ save_browser_data }}" method="post">
@@ -139,6 +274,7 @@
 
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'semantic/semantic.min.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@1/build/global/luxon.min.js"></script>
 
     {% block addscript %}{% endblock %}
@@ -186,52 +322,9 @@ $(document).ready(function() {
     /*** Ajax Setup ***/
     $.ajaxSetup({traditional: true}); 
 
-    /*** decorate bar ***/
-
-    function NavScroll(){
-	this.nav=$("nav#mainbar");
-	this._handler=false;
-	this.nav_height=this.nav.height(); 
-    };
-
-    NavScroll.prototype = {
-	setup: function () {
-	    var from_top=$(window).scrollTop();
-	    if ( from_top > this.nav_height) {
-		this.nav.removeClass("ontop").addClass("scrolled");
-	    } else {
-		this.nav.removeClass("scrolled").addClass("ontop");
-	    }
-	},
-	disable_reduced: function() {
-	    this.disable();
-	    this.nav.removeClass("ontop").addClass("scrolled");
-	},
-	enable: function() {
-	    var self=this;
-	    var handler=function(event){ self.setup() };
-	    $(window).on("scroll touchmove", handler);
-	    this._handler=handler;
-	},
-	disable: function() {
-	    if (!this._handler) return;
-	    $(window).off("scroll touchmove", this._handler);
-	    this._handler=false;
-	}
-    };
-
-    var navscroll=new NavScroll();
-    navscroll.setup();
-    navscroll.enable();
-    
-    $(".menu-opener").click(function(event){
-	event.preventDefault();
-	var target=$( $(this).data("target") );
-	target.children("a").each(function(){
-	    $(this).css({ "opacity": 1-$(this).css("opacity") });
-	});
+    $(".ui.toggle.button").click(function() {
+        $(".mobile.only.grid .ui.vertical.menu").toggle(100);
     });
-
 
     /*** page script ***/
 
