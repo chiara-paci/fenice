@@ -12,11 +12,17 @@
 
     <link rel="icon" href="{% static 'brand/favicon.png' %}" type="image/png"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Neucha&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" type="text/css" href="{% static 'semantic/semantic.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet"> 
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fenice.css' %}">
 
     {% block addcss %}{% endblock %}
 
@@ -25,239 +31,85 @@
   <body id="root">
 
     {% block body %}
+   
+    <header>
 
-    
+      <nav>
+	<section id="sitemenu">
+	  <button id="sitemenu-open" data-target="#sitemenu" class="menu-opener" aria-label="site menu">
+	    <i class="fas fa-bars"></i>
+	  </button>
+	  <h2 class="hidden">{% trans "Site menu" %}</h2>
+	  <a href="/">{% trans "Home" %}</a>
+	  {% comment %}
+	  <a href="{% url "feniceblog:article_archive" %}">{% trans "Blog" %}</a>
+	  {% endcomment %}
+	  <a href="{% url "forum:index" %}">{% trans "Forum" %}</a>
+	</section>
 
-    <header class="ui grid top fixed borderless tablet computer only padded">
-
-      <div class="three column row">
-
-	<div class="column" style="border: 1px solid red">
-	  <h1 class="ui header">
-	    <img class="ui image" src="{% static 'brand/logo.svg' %}">
-	    <div class="content">{{ COMMUNITY_NAME }}</div>
-	  </h1>
-	</div>
+	<section id="usermenu">
+	  <button id="usermenu-open" data-target="#usermenu" class="menu-opener"  aria-label="site menu">
+	    <i class="fas fa-user"></i>
+	  </button>
+	  <h2 class="hidden">{% trans "User navigation" %}</h2>
+	  {% include "feniceauth/includes/user_links.html" %}
+	</section>
 	
-	<div class="two wide column"  style="border: 1px solid red">
-          <form class="ui form">
-            <div class="inline fields">
-              <div class="field">
-		<input placeholder="Email" type="text" />
-              </div>
-              <div class="field">
-		<input placeholder="Password" type="password" />
-              </div>
-              <div class="field">
-		<button class="ui green button">Sign in</button>
-              </div>
-            </div>
-          </form>
-	</div>
-	
-      </div>
-      
-      <div class="one column row">
-	<div class="column" style="border: 1px solid red">
-	  <nav class="ui secondary menu">
-	    <a class="item">
-	      Home
-	    </a>
-	    <a class="item">
-	      Messages
-	    </a>
-	    <a class="item">
-	      Friends
-	    </a>
-	  </nav>
-	</div>
-      </div>
 
+      </nav>
+
+      <div id="title">
+	<img src="{% static 'brand/logo.svg' %}" alt="logo"/>
+	<h1>{{ COMMUNITY_NAME }}</h1>
+      </div>
 
 
     </header>
 
-
-<!--      <div class="ui top fixed borderless inverted fluid menu">
-        <div class="ui container">
-          <p class="header item">{{ COMMUNITY_NAME }}</p>
-
-          <div class="right menu">
-            <div class="item">
-              <form class="ui form">
-                <div class="inline fields">
-                  <div class="field">
-                    <input placeholder="Email" type="text" />
-                  </div>
-                  <div class="field">
-                    <input placeholder="Password" type="password" />
-                  </div>
-                  <div class="field">
-                    <button class="ui green button">Sign in</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
-        </div>
-      </div> -->
-
-
-
-    <header class="ui mobile only padded grid">
-      <div class="ui top fixed borderless inverted fluid huge menu">
-        <p class="header item">{{ COMMUNITY_NAME }}</p>
-
-        <div class="ui vertical borderless inverted fluid menu">
-          <div class="item">
-            <form class="ui form">
-              <div class="field">
-		<input placeholder="Email" type="text" />
-	      </div>
-              <div class="field">
-                <input placeholder="Password" type="password" />
-              </div>
-              <div class="field">
-                <button class="ui green button">Sign in</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-
-    </header>
 
     <main>
+      {% block main %}{% endblock %}
 
-    <div class="ui massive message">
-      <div class="ui container">
-        <h1 class="ui huge header">Hello, world!</h1>
-        <p>
-          This is a template for a simple marketing or informational website. It
-          includes a large callout called a jumbotron and three supporting
-          pieces of content. Use it as a starting point to create something more
-          unique.
-        </p>
-        <button class="ui large primary button">Learn more &raquo;</button>
+    </main>
+
+    <footer>
+
+      <div class="actions">
+
+	<section class="left">
+	  <h2 class="hidden">{% trans "Useful Links" %}</h2>
+	  <a href="{% url "fenicegdpr:policy" %}">{% trans "Privacy&nbsp;Policy" %}</a>
+	  <a href="{% url "credits" %}">{% trans "Credits" %}</a>
+	</section>
+	
+	<section class="right">
+	  <h2 class="hidden">{% trans "User navigation" %}</h2>
+	  {% include "feniceauth/includes/user_links.html" %}
+	</section>
+
       </div>
-    </div>
 
-    <div class="ui container">
-      <div class="ui three column stackable grid">
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-      </div>
-      <div class="ui hidden divider"></div>
-      <div class="ui divider"></div>
+      <section class="info">
+	<h1 class="hidden">{% trans "Notes" %}</h1>
 
-    <div class="ui container">
-      <div class="ui three column stackable grid">
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-      </div>
-      <div class="ui hidden divider"></div>
-      <div class="ui divider"></div>
+	{% now "Y" as today_year %}
+	{% if today_year != COMMUNITY_FOUNDATION %}
+	<p class="center">© {{ COMMUNITY_FOUNDATION }}-{{ today_year }} {{ COMMUNITY_NAME }}</p>
+	{% else %}
+	<p class="center">© {{ COMMUNITY_FOUNDATION }} {{ COMMUNITY_NAME }}</p>
+	{% endif %}
 
-    <div class="ui container">
-      <div class="ui three column stackable grid">
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-        <div class="column">
-          <h1 class="ui header">Heading</h1>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <div class="ui small basic button">View details &raquo;</div>
-        </div>
-      </div>
-      <div class="ui hidden divider"></div>
-      <div class="ui divider"></div>
+	<p class="center">
+	  {% blocktrans %}Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>{% endblocktrans %}
+	  <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+	    <i class="fab fa-creative-commons"></i>
+	    <i class="fab fa-creative-commons-by"></i>
+	    <i class="fab fa-creative-commons-sa"></i>
+	  </a>
+	</p>
+      </section>
 
-      <footer>
-	&copy; 2020 Costruttori di Mondi
-      </footer>
-
-    </div>
-
+    </footer>
 
     {% endblock %}
 
@@ -272,126 +124,39 @@
 
     {% block mainscript %}
 
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="https://kit.fontawesome.com/398c6b2bdc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="{% static 'semantic/semantic.min.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@1/build/global/luxon.min.js"></script>
 
-    {% block addscript %}{% endblock %}
+    {% block loadscript %}
+    <script src="{% static 'js/default.min.js' %}"></script>
+    {% endblock %}
     
     <script>//<![CDATA[    
+      $(document).ready(function() {
+
+	  /*** page script ***/
+
+	  {% block script %}{% endblock script %}
+
+	  /*** end page script ***/
+      });
+      //]]>
+    </script>
+
+
+
+{% if save_browser_data %}
+<script src="{% static 'js/lib/browser-stat.min.js' %}"></script>
+<script>
+//<![CDATA[    
 $(document).ready(function() {
-    /*** CSRF ***/
-    jQuery(document).ajaxSend(function(event, xhr, settings) {
-	function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie != '') {
-		var cookies = document.cookie.split(';');
-		for (var i = 0; i < cookies.length; i++) {
-                    var cookie = jQuery.trim(cookies[i]);
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
-			cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-			break;
-                    }
-		}
-            }
-            return cookieValue;
-	}
-	function sameOrigin(url) {
-            // url could be relative or scheme relative or absolute
-            var host = document.location.host; // host + port
-            var protocol = document.location.protocol;
-            var sr_origin = '//' + host;
-            var origin = protocol + sr_origin;
-            // Allow absolute or scheme relative URLs to same origin
-            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
-		(url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
-		// or any other URL that isn't scheme relative or absolute i.e relative.
-		!(/^(\/\/|http:|https:).*/.test(url));
-	}
-	function safeMethod(method) {
-            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-	}
-	
-	if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
-            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
-	}
-    });
-    
-    /*** Ajax Setup ***/
-    $.ajaxSetup({traditional: true}); 
-
-    $(".ui.toggle.button").click(function() {
-        $(".mobile.only.grid .ui.vertical.menu").toggle(100);
-    });
-
-    /*** page script ***/
-
-    {% block script %}{% endblock script %}
-
-    /*** end page script ***/
-
-    {% if save_browser_data %}
-    /*** browser statistic ***/
-
-    var collect_stat = function(){
-	var form=$("#browserinfo");
-
-	var luxon_prop=luxon.Info.features();
-	var dt=luxon.DateTime.local();
-	var data = {
-	    "csrf_token": form.children("input[name=csrfmiddlewaretoken]").val(),
-	    "code_name": navigator.appCodeName,
-	    "name": navigator.appName,
-	    "version": navigator.appVersion,
-	    "language": navigator.language,
-	    "platform": navigator.platform,
-	    "user_agent": navigator.userAgent,
-	    "cookies_enabled": navigator.cookieEnabled,
-	    "screen_width": screen.width,
-	    "screen_height": screen.height,
-	    "screen_available_width": screen.availWidth,
-	    "screen_available_height": screen.availHeight,
-	    "screen_color_depth": screen.colorDepth,
-	    "screen_pixel_depth": screen.pixelDepth,
-	    "luxon_intl": luxon_prop["intl"],
-	    "luxon_intl_tokens": luxon_prop["intlTokens"],
-	    "luxon_zones": luxon_prop["zones"],
-	    "luxon_relative": luxon_prop["relative"],
-	    "timezone": dt.zoneName,
-	    "iso_timestamps": dt.toISO(),
-	    "viewport_width": Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-	    "viewport_height": Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-	}
-	$.ajax({
-	    "url": "{{ save_browser_data }}",
-	    "data": data,
-	    "headers": {
-		"Accept": "application/json"
-	    },
-	    "method": "POST",
-	    "success":function( data ) {
-		console.log("ok",ret);
-	    },
-	    "error": function(ret){
-		console.log("error",ret);
-		
-	    }	
-	}); 
-
-    };
-
-    collect_stat();
-
-    {% endif %}
-
-    
-
+    collect_stat("{{ save_browser_data }}");
 });
+//]]>
+</script>
+{% endif %}
 
-//]]></script>
-
-    {% endblock mainscript %}
-  </body>
+{% endblock mainscript %}
+</body>
 </html>

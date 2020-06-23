@@ -37,7 +37,8 @@ class OpenLicenseAdmin(admin.ModelAdmin):
 admin.site.register(models.OpenLicense,OpenLicenseAdmin)
 
 class OpenImageCreditAdmin(admin.ModelAdmin):
-    list_display=[ "thumb_name","thumbnail","_license","_author","title","_url" ]
+    list_display=[ "thumb_name","thumbnail","_license","_author","title","_url"]
+    list_editable=["title"]
     save_as=True
 
     def thumbnail(self,obj):

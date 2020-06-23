@@ -1,6 +1,7 @@
+{% extends base_email_body.txt %}
 {% load i18n %}
 
-{{ user }},
+{% block content %}
 
 {% blocktrans %}welcome to {{ COMMUNITY_NAME }}.{% endblocktrans %}
 
@@ -14,10 +15,5 @@ The link will'be valid for {{ expiration_days }} day.
 The link will'be valid for {{ expiration_days }} days.
 {% endblocktrans %} 
 
-{% blocktrans %}
-Regards,
-{% endblocktrans %} 
+{% endblock %}
 
-{% blocktrans %}
-{{ COMMUNITY_NAME }}'s Team
-{% endblocktrans %} 

@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% blocktrans %}Dear {{ user }},{% endblocktrans %}
+
+{% block content %}
+{% endblock %}
+
+{% blocktrans %}
+Regards,
+{% endblocktrans %} 
+
+{% blocktrans %}
+{{ COMMUNITY_NAME }}'s Team
+{% endblocktrans %} 

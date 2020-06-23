@@ -1,18 +1,1 @@
-{% extends "feniceauth/base.html" %}
-{% load i18n %}
-
-{% block headertitle %}{% trans "Registration Disallowed" %}{% endblock %}
-
-{% block main %}
-
-<section class="text-only">
-
-  <div>
-    <p>{% trans "Registration is temporarily disallowed." %}</p>
-
-    <p>{% trans "Please come back later." %}</p>
-  </div>
-
-</section>
-
-{% endblock %}
+{% extends "feniceauth/registration_closed.html" %}

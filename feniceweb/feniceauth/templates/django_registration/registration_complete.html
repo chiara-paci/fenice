@@ -3,16 +3,7 @@
 
 {% block headertitle %}{% trans "Registration Complete" %}{% endblock %}
 
-{% block main %}
-
-<section class="text-only">
-
-  <div>
-    <p>{% trans "We've emailed you instructions for activate your account." %}</p>
-
-    <p>{% trans "If you don't receive an email, please make sure you've entered a correct address, and check your spam folder." %}</p>
-  </div>
-
-</section>
-
+{% block message-text %}
+<p>{% trans "We've emailed you instructions for activate your account." %}</p>
+<p>{% trans "If you don't receive an email, please make sure you've entered a correct address, and check your spam folder." %}</p>
 {% endblock %}

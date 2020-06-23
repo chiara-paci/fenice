@@ -2,23 +2,14 @@
 {% load i18n %}
 
 {% block wintitle %}{% trans "Logged Out" %}{% endblock %}
-{% block headertitle %}{% trans "Logged Out" %}{% endblock %}
 
-{% block main %}
+{% block message-text %}
+<p class="center">{% blocktrans %}Thanks for spending some quality time with {{ COMMUNITY_NAME }} today.{% endblocktrans %}</p>
+{% endblock %}
 
-<section class="text-only">
-
-  <div>
-    <p>{% blocktrans %}Thanks for spending some quality time with {{ COMMUNITY_NAME }} today.{% endblocktrans %}</p>
-  </div>
-
-  <div>&nbsp;</div>
-
-  <div>
-    <a href="{% url 'feniceauth:login' %}" class="button complement">
-      {% trans 'Log in again' %}</a>
-  </div>  
-
+{% block content %}
+<section>
+  <a href="{% url 'feniceauth:login' %}" class="button">
+      {% block login-button %}{% trans 'Log in again' %}{% endblock %}</a>
 </section>
-
 {% endblock %}

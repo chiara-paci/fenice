@@ -56,9 +56,9 @@ INSTALLED_APPS = [
     'avatar',
 
     # django-helpdesk dependencies
-    'markdown_deux',  # Required for Knowledgebase item formatting
+    #'markdown_deux',  # Required for Knowledgebase item formatting
     'bootstrapform',  # Required for nicer formatting of forms with the default templates
-    'helpdesk',       # This is us!
+    #'helpdesk',       # This is us!
 
     # Machina dependencies:
     'mptt',
@@ -80,10 +80,10 @@ INSTALLED_APPS = [
 
     # Pinax
     "pinax.badges",
-    "pinax.announcements",
+    #"pinax.announcements",
     "pinax.calendars",
-    "pinax.likes",
-    "pinax.messages",
+    #"pinax.likes",
+    #"pinax.messages",
 
     "fenicemisc.apps.FenicemiscConfig",
     "fenicegdpr.apps.FenicegdprConfig",
@@ -100,7 +100,7 @@ LOGIN_URL = "/accounts/login/"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'pinax.likes.auth_backends.CanLikeBackend',
+    #'pinax.likes.auth_backends.CanLikeBackend',
 ]
 
 

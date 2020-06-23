@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block main %}
+
+<section class="document">
+
+<header>
+  <h1>{% block title %}{% trans "Privacy Policy" %}{% endblock %}</h1>
+</header>
+
+<article>
+  {% block content %}
+  {% endblock content %}
+</article>
+
+<footer>
+  {% block footer %}
+  {% endblock footer %}
+</footer>
+
+</section>
+
+{% endblock main %}

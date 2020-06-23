@@ -1,0 +1,13 @@
+{% load static %}
+{% load i18n %}
+
+{% if user.is_anonymous %}
+<a href="{% url "feniceauth:login" %}">{% trans "login" %}</a>
+<a href="{% url "feniceauth:register" %}">{% trans "register" %}</a>
+{% else %}
+<a href="{% url "feniceauth:profile" %}">{% trans "profile" %}</a>
+{% if user.is_staff %}
+<a href="{% url "admin:index" %}">{% trans "admin" %}</a>
+{% endif %}
+<a href="{% url "feniceauth:logout" %}">{% trans "logout" %}</a>
+{% endif %}

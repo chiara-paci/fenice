@@ -6,13 +6,14 @@ from django.urls import path
 
 from django_registration.backends.activation.views import RegistrationView,ActivationView
 
-from feniceauth.forms import FeniceRegistrationForm
+from feniceauth.forms import FeniceRegistrationForm,FeniceAuthenticationForm
 
 app_name="feniceauth"
 
 # django auth
 urlpatterns=[
-    path('login/', auth_views.LoginView.as_view(), 
+    path('login/', 
+         auth_views.LoginView.as_view(authentication_form=FeniceAuthenticationForm), 
          name='login'),
     path('logout/', auth_views.LogoutView.as_view(), 
          name='logout'),

@@ -2,9 +2,17 @@
 {% load static %}
 {% load i18n %}
 
-{% block header %}
-<div class="pagetitle">
-  <h1>{% block headertitle %}{% endblock %}</h1>
-</div>
-{% endblock header %}
+{% block main %}
+
+<section class="message">
+  <img src="{% static 'brand/logo.svg' %}" alt="logo"/>
+  <div class="text">
+    {% block message-text %}{% endblock %}
+  </div>
+</section>
+
+{% block content %}
+{% endblock content %}
+
+{% endblock main %}
 

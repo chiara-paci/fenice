@@ -32,7 +32,7 @@ import feniceblog.urls
 
 import ckeditor_uploader.urls
 import avatar.urls
-import helpdesk.urls
+#import helpdesk.urls
 
 import fenicemisc.views
 import fenicemisc.decorators
@@ -60,11 +60,11 @@ urlpatterns = [
     path(r'privacy/', include(fenicegdpr.urls)),
     path(r'blog/', include(feniceblog.urls)),
     path(r'forum/', include(machina_urls)),
-    path(r'helpdesk/', include(helpdesk.urls)),
-    path(r"badges/", include("pinax.badges.urls", namespace="pinax_badges")),
-    path(r"announcements/", include("pinax.announcements.urls", namespace="pinax_announcements")),
-    path(r"likes/", include("pinax.likes.urls", namespace="pinax_likes")),
-    path(r"messages/", include("pinax.messages.urls", namespace="pinax_messages")),
+    #path(r'helpdesk/', include(helpdesk.urls)),
+    #path(r"badges/", include("pinax.badges.urls", namespace="pinax_badges")),
+    #path(r"announcements/", include("pinax.announcements.urls", namespace="pinax_announcements")),
+    #path(r"likes/", include("pinax.likes.urls", namespace="pinax_likes")),
+    #path(r"messages/", include("pinax.messages.urls", namespace="pinax_messages")),
 ]
 
 if settings.DEBUG:

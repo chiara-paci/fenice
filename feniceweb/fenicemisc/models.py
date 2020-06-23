@@ -36,13 +36,6 @@ class OpenLicense(models.Model):
             "url": self.url,
         }
 
-def get_default_open_license():
-    lic,create=OpenLicense.objects.get_or_create(short_name="CC BY-SA 4.0",defaults = {
-        "long_name":"Creative Commons Attribution-Share Alike 4.0",
-        "url":"https://creativecommons.org/licenses/by-sa/4.0/"
-    })
-    return lic.id
-
 class OpenImageCreditManager(models.Manager):
     def deserialize(self,ser):
         defaults={
@@ -58,7 +51,15 @@ class OpenImageCreditManager(models.Manager):
 
 # https://code.djangoproject.com/ticket/29529
 def openimagecredit_image_path():
+    print("XXXX")
     return settings.CREDITS_THUMBNAILS_DIR
+
+def get_default_open_license():
+    lic,create=OpenLicense.objects.get_or_create(short_name="CC BY-SA 4.0",defaults = {
+        "long_name":"Creative Commons Attribution-Share Alike 4.0",
+        "url":"https://creativecommons.org/licenses/by-sa/4.0/"
+    })
+    return lic.id
 
 class OpenImageCredit(models.Model):
     thumb_path = models.FilePathField(max_length=4096,path=openimagecredit_image_path,unique=True)

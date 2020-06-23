@@ -1,0 +1,50 @@
+footer {
+    padding-top: 1em;
+    font-size: 80%;
+    padding-bottom: 3em;
+
+    background: fadeout(@color-light-grey-secondary-2-0,70%);
+    color: @color-dark-grey-secondary-2-4;
+
+    a {
+	color: @color-dark-grey-secondary-2-4;
+    }
+
+    div.actions {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+	align-content: flex-start;
+	justify-content: space-around;
+
+	margin-bottom: 2em;
+
+	a {
+	    display: block;
+	    text-transform: capitalize;
+	}
+
+	section {
+	    display: flex;
+	    flex-direction: column;
+	    flex-wrap: nowrap;
+	    align-items: center;
+	    align-content: center;
+	    justify-content: stretch;
+
+	    &.left {
+		align-items: flex-start;
+		align-content: flex-start;
+	    }
+
+	    &.right {
+		align-items: flex-end;
+		align-content: flex-end;
+	    }
+
+	}
+
+    }
+}

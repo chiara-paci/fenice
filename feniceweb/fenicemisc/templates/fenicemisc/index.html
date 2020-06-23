@@ -1,7 +1,222 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
-{% load gdpr %}
+
+{% block main %}
+
+<section id="home-passion">
+
+  <div>
+    <h1>Scrivere è la nostra passione</h1>
+    <p class="center">Ma non è solo una passione.</p>
+  </div>
+
+  <img src="{% static 'images/homepage/passione.svg' %}" alt="passione"/>
+
+</section>
+
+<section class="argument">
+
+  <h1>Migliora la tua scrittura</h1>
+
+  <p>
+    Crediamo  nella  crescita  e  nel  confronto.  Qui  troverai  una
+    comunità da cui ricevere e a cui dare consigli alla pari.
+  </p>
+
+  <img src="{% static 'images/homepage/officina.svg' %}" alt="officina"/>
+
+  <div class="boxes box3">
+
+    <div class="box">
+      <i class="fas fa-glasses"></i>
+
+      <h2>Leggi i lavori degli altri</h2>
+      
+      <p>Lascia le tue impressioni: tutti  siamo lettori e tutti abbiamo
+	qualcosa di utile da dire.</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-chalkboard-teacher"></i>
+
+      <h2>Scrivi i tuoi racconti</h2>
+      
+      <p>Ricevi  correzioni e  consigli da  lettori di  ogni tipo  e che
+	spesso sono scrittori come te.</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-award"></i>
+
+      <h2>Partecipa ai contest</h2>
+      
+      <p>Mettiti alla prova con le gare di scrittura.</p>
+      
+    </div>
+  </div>
+  
+</section>
+
+<section class="argument">
+
+  <h1>La comunità</h1>
+
+  <p>Non è  solo questione  di condividere o  confrontarsi. È  più far
+    parte  di  una società,  dove  vengono  condivise passioni.  E  il
+    viaggio   diventa   più   facile   perché   sono   in   tanti   ad
+    accompagnarci.</p>
+
+  <img src="{% static 'images/homepage/comunita.svg' %}" alt="community"/>
+
+  <div class="boxes box4">
+
+    <div class="box">
+
+      <i class="fas fa-book-open"></i>
+      
+      <h2>Leggere</h2>
+
+      <p>Un  buono  scrittore dev'essere  per  forza  anche un  grande
+	lettore. Stai leggendo qualcosa di interessante? Cerchi qualcosa
+	da leggere? O vuoi solo parlare di libri?</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-pen-alt"></i>
+
+      <h2>Scrivere</h2>
+      
+      <p>Scrivere è un lavoro difficile in molti sensi diversi. Hai un
+	dubbio  linguistico? Ti  servono suggerimenti  per una  trama?
+	Vuoi migliorare il contesto delle tue storie? </p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-dungeon"></i>
+
+      <h2>L'editoria</h2>
+      
+      <p>Come funziona la pubblicazione? Quali  sono le novità? Qual è
+	il percorso migliore? Come confezionare un manoscritto?</p>
+      
+    </div>
+
+    <div class="box">
+      <i class="fas fa-glass-cheers"></i>
+
+      <h2>Agorà</h2>
+      
+      <p>Poiché non si vive di  sola scrittura, abbiamo anche un posto
+	dove  semplicemente  chiacchierare   con  gli  altri  compagni
+	d'avventura.</p>
+      
+    </div>
+  </div>
+
+</section>
 
 
+
+<section class="argument">
+  <h1>I nostri libri</h1>
+
+  <p>Pubblicare un libro è un traguardo, ma la strada non è finita.</p>
+
+  <img src="{% static 'images/homepage/nostri_libri.svg' %}" alt="i nostri libri"/>
+
+  <div class="boxes box3">
+
+    <div class="box">
+      <i class="fas fa-book"></i>
+
+      <h2>Presenta il tuo libro</h2>
+      
+      <p>Crea  una  scheda  del  tuo libro,  dove  potrai  segnalare  le
+	presentazioni e ricevere commenti dagli altri utenti.</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-newspaper"></i>
+
+      <h2>Chiedi una recensione</h2>
+      
+      <p>Abbiamo un comitato di lettura, a cui puoi chiedere di valutare
+	il tuo libro per una recensione.</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-paper-plane"></i>
+
+      <h2>Scrivi una recensione</h2>
+      
+      <p>Puoi  partecipare al  comitato di  lettura oppure  recensire il
+	libro di un autore esordiente.</p>
+      
+    </div>
+  </div>
+
+</section>
+
+<section class="argument">
+  <h1>Il mondo editoriale</h1>
+
+  <p>Il mondo editoriale è l'acqua in cui nuota ogni scrittore.</p>
+
+  <img src="{% static 'images/homepage/editoria.svg' %}" alt="mondo editoriale"/>
+
+
+  <div class="boxes box4">
+    <div class="box">
+      <i class="fas fa-building"></i>
+
+      <h2>Case editrici</h2>
+      
+      <p>Una scheda dettagliata  per ogni casa editrice,  con tutte le
+	informazioni necessarie e le esperienze degli altri utenti.</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-briefcase"></i>
+
+      <h2>Agenzie letterarie</h2>
+      
+      <p>Le  agenzie   letterarie  possono   offire  servizi   o  fare
+      scouting.  Anche per  loro, schede  dettagliate e  le esperienze
+      degli utenti.</p>
+      
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-users"></i>
+
+      <h2>Freelance</h2>
+      
+      <p>La nostra vetrina per chi  ha bisogno di aiuto per l'editing,
+	la copertina o altro. O per chi offre questi servizi.</p>
+      
+    </div>
+
+    <div class="box">
+      <i class="fas fa-calendar-alt"></i>
+
+      <h2>Concorsi ed eventi</h2>
+      
+      <p>Un  calendario per  segnalare  i concorsi  e  altri eventi  e
+	vedere chi altro partecipa della comunità.</p>
+      
+    </div>
+  </div>
+
+</section>
+
+
+{% endblock %}
 
