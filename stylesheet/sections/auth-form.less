@@ -6,28 +6,37 @@ section.auth-form {
 
     div.errors {
 	font-size: 90%;
+	max-width: 800px;
+	margin: auto;
 	margin-bottom: 1em;
 	padding: .2em;
 
 	p {
 	    text-align: center;
+	    transition: 0.28s;
 	}
 
     }
 
     div.form {
+
+	max-width: 800px;
+	margin: auto;
+
 	form {
 	    display: flex;
 	    flex-direction: column;
 	    flex-wrap: nowrap;
 	    justify-content: space-around;
-	    align-items: center;
-	    align-content: center;
+	    align-items: stretch;
+	    align-content: stretch;
 	    padding-top: .5em;
 	    padding-bottom: .5em;
 
 	    div.data,
 	    div.action {
+		width: 100%;
+		display: flex;
 		flex-direction: column;
 		flex-wrap: nowrap;
 		justify-content: space-around;

@@ -66,61 +66,113 @@ button {
 
 form {
     * { font-size: 100%; }
+
 }
 
 .errors {
     color: @color-primary-4;
+
 }
 
-input[type=text], 
-input[type=email], 
-input[type=password] {
-    border-radius: 2em;
-    border: 1px solid @color-light-grey-secondary-2-0;
-    box-shadow: 0 0 .5em 0em @color-light-grey-secondary-2-0 inset;
-
-    padding: .5em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    margin-top: .5em;
-    margin-bottom: .5em;
-    line-height: 2em;
-
-    //font-size: 100%;
-    width: 90%;
-    margin: auto;
-
+.input-invalid {
+    border: 1px solid @color-primary-4;
+    box-shadow: 0 0 .5em 0em @color-light-primary-2 inset;
+    
     &::placeholder {
-	color: @color-grey-secondary-2-0;
+	color: @color-grey-primary-2;
     }
+    
+    & ~ .requirements {
+	max-height: 200px;
+    }
+}
 
-    .errors & {
-	border: 1px solid @color-primary-4;
-	box-shadow: 0 0 .5em 0em @color-light-primary-2 inset;
+div.form-field {
+    width: 100%;
 
-	&::placeholder {
-	    color: @color-grey-primary-2;
+    &.invalid {
+	ul.errorlist {
+	    display: block;
 	}
+
+	div.requirements {
+	    max-height: 200px;
+	}
+
+	input[type=text], 
+	input[type=email], 
+	input[type=password] {
+	    .input-invalid();
+	}
+
+    }
+
+    
+    ul.errorlist {
+	color: @color-primary-4;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;    
+	width: 90%;
+	margin: auto;
+	display: none;
+    }
+
+    div.requirements {
+	font-size: 80%;
+	max-width: 800px;
+	min-width: 260px;
+	margin: auto;
+	color: @color-grey-primary-2;
+	overflow: hidden;
+	padding-left: 5%;
+	padding-right: 5%;
+	text-align: justify;
+
+	max-height: 0;
+	transition: 0.28s;
+
+	ul {
+	    list-style-type: none;
+	    padding: 0;
+	    margin: 0;
+	    
+	}
+
+    }
+
+    input[type=text], 
+    input[type=email], 
+    input[type=password] {
+	border-radius: 2em;
+	border: 1px solid @color-light-grey-secondary-2-0;
+	box-shadow: 0 0 .5em 0em @color-light-grey-secondary-2-0 inset;
+	
+	padding: .5em;
+	padding-left: 2em;
+	padding-right: 1.5em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	line-height: 2em;
+	
+	//font-size: 100%;
+	width: 90%;
+	margin: auto;
+	
+	&::placeholder {
+	    color: @color-grey-secondary-2-0;
+	}
+	
+	not(.invalid) &:valid {
+	    background: green;
+	}
+
+	&:invalid:not(:placeholder-shown),
+	div.form-field.invalid & {
+	    .input-invalid();
+	}
+	
+	
     }
 
 }
-
-input + span {
-  position: relative;
-}
-
-input + span::before {
-  position: absolute;
-  right: -20px;
-  top: 5px;
-}
-
-input.invalid {
-  border: 2px solid red;
-}
-
-input.invalid + span::before {
-  content: '✖';
-  color: red;
-}
-

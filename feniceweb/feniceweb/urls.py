@@ -38,6 +38,9 @@ import fenicemisc.views
 import fenicemisc.decorators
 import feniceerrors.handlers
 
+from django.views.i18n import JavaScriptCatalog
+
+
 from decorator_include import decorator_include
 
 params={
@@ -50,6 +53,7 @@ admin.site.index_title=_('%(community_name)s Administration') % params
 
 urlpatterns = [
     path(r'', fenicemisc.views.HomePageView.as_view(), name="home"),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path(r'admin/doc/', include('django.contrib.admindocs.urls')),
     path(r'admin/', decorator_include([fenicemisc.decorators.staff_or_404], admin.site.urls)),
     path(r'ckeditor/', include(ckeditor_uploader.urls)),

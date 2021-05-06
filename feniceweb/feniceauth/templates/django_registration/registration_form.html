@@ -8,13 +8,17 @@
 
 
 {% block form %}
-
 <form method="post">
   <div class="data">
   {% csrf_token %}
   {% for field in form %}
-  <span{% if field.errors %} class="errors"{% endif %}>{{ field }}<span></span></span>
-  {{ field.errors }}
+  <div class="form-field{% if field.errors %} invalid{% endif %}">
+    {{ field }}
+    <div class="requirements">
+      {{ field.errors }}
+      {{ field.help_text|safe }}
+    </div>
+  </div>
   {% endfor %}
   </div>
 
@@ -25,6 +29,3 @@
 </form>
 {% endblock %}
 
-{% block after %}
-{{ form.password1.help_text|safe }}
-{% endblock %}
